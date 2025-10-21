@@ -27,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <div className="w-full min-h-screen flex flex-col justify-content-between">
+          <Header />
+          <div className="w-full h-full flex-1">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
