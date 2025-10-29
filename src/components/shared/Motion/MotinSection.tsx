@@ -1,23 +1,25 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 
 type VariantType = 'fadeUp' | 'fadeLeft' | 'fadeRight';
+
+interface MotionSectionProps {
+  title: string;
+  color: string;
+  variant?: VariantType;
+}
 
 export default function MotionSection({
   title,
   color,
   variant = 'fadeUp',
-}: {
-  title: string;
-  color: string;
-  variant?: VariantType;
-}) {
+}: MotionSectionProps) {
   const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, { amount: 0.4 });
 
-  const variants: Record<VariantType, any> = {
+  const variants: Record<VariantType, Variants> = {
     fadeUp: {
       hidden: { opacity: 0, y: 80 },
       visible: { opacity: 1, y: 0 },
