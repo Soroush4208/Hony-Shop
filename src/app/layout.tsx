@@ -15,10 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body>
-        <div className="w-full min-h-screen flex flex-col justify-content-between">
+      <body className="w-full overflow-x-hidden">
+        <div className="w-full min-h-screen flex flex-col justify-between items-center">
           <Header />
-          <div className="w-full h-full flex-1">{children}</div>
+          <div className="w-full max-w-[1300px]  mx-auto overflow-x-hidden  h-full flex-1">
+            {children}
+          </div>
           <Footer />
         </div>
       </body>
